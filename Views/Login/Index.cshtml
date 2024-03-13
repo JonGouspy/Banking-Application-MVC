@@ -1,0 +1,49 @@
+﻿@model BankingApp.Models.User
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Bank Login</title>
+    <link href="@Url.Content("~/Content/login.css")" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="login-div">
+        @using (Html.BeginForm("Authorise", "Login", FormMethod.Post))
+        {
+            <h1>BANK</h1>
+            <h3>Enter your login credentials</h3>
+            <form action="">
+                @Html.LabelFor(model => model.FirstName)
+                @Html.EditorFor(model => model.FirstName)
+                @Html.ValidationMessageFor(model => model.FirstName)
+
+                @Html.LabelFor(model => model.LastName)
+                @Html.EditorFor(model => model.LastName)
+                @Html.ValidationMessageFor(model => model.LastName)
+
+                @Html.LabelFor(model => model.Pin)
+                @Html.EditorFor(model => model.Pin)
+                @Html.ValidationMessageFor(model => model.Pin)
+
+                @Html.ValidationMessageFor(model => model.LoginErrorMessage)
+
+                <div class="wrap">
+                    <p class="field-validation-error">@Html.DisplayFor(model => Model.LoginErrorMessage)</p>
+                </div>
+
+                <div class="wrap">
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+        }
+        <script src="~/Scripts/jquery-1.8.0.min.js"></script>
+        <script src="~/Scripts/jquery.validate.min.js"></script>
+        <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    </div>
+</body>
+</html>

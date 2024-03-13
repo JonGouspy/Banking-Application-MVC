@@ -1,0 +1,118 @@
+﻿@model BankingApp.Models.User
+
+@{
+    Layout = null;
+    if (Session["Id"] == null)
+    {
+        Response.Redirect("~/Login/Index");
+    }
+
+    int nbAccount = Model.Accounts.Count();
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <!DOCTYPE html>
+
+    <html>
+        <head>
+            <meta name="viewport" content="width=device-width" />
+            <title>Delete</title>
+            <link href="@Url.Content("~/Content/global.css")" rel="stylesheet" type="text/css" />
+
+            <style>
+                .input-button {
+                    width: 100%;
+                    font-size: 16px;
+                    display: block;
+                    margin-bottom: 10px;
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                    border-radius: 5px;
+                    text-align: center;
+                    text-decoration: none;
+                    transition: background-color 0.3s;
+                    text-decoration: none;
+                }
+
+                .input-button:focus,
+                .input-button:hover {
+                    background-color: #45A049;
+                }
+
+                .account-delete {
+                    margin-bottom: 20px;
+                }
+
+                .dl-horizontal dt {
+                    font-weight: bold;
+                    margin-bottom: 5px;
+                }
+
+                .dl-horizontal dd {
+                    margin-left: 0;
+                    margin-bottom: 30px;
+                }
+
+                input {
+                    display: block;
+                    width: 45%;
+                    margin-bottom: 15px;
+                    padding: 10px;
+                    box-sizing: border-box;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                }
+
+                #logout-btn {
+                    position: fixed;
+                    bottom: 20px;
+                    left: 30px;
+                    padding: 10px 20px;
+                    border: none;
+                    border-radius: 5px;
+                    cursor: pointer;
+                }
+            </style>
+        </head>
+
+        <body>
+            <div class="container">
+                <div class="buttons-section">
+                    <h1>ADMIN</h1>
+                    <input type="submit" value="Confirm" class="input-button"/>
+                    @Html.ActionLink("Back to List", "Index")
+                    @Html.ActionLink("Log Out", "LogOut", null, new { @id = "logout-btn" })
+                </div>
+                <div class="text-section">
+                    <h2>Are you sure you want to delete this?</h2>
+                    <h3>User</h3>
+                    <hr />
+                    <div class="account-details">
+                        <dl class="dl-horizontal">
+                            <dt>@Html.DisplayNameFor(model => model.FirstName)</dt>
+                            <dd>@Html.DisplayFor(model => model.FirstName)</dd>
+
+                            <dt>@Html.DisplayNameFor(model => model.LastName)</dt>
+                            <dd>@Html.DisplayFor(model => model.LastName)</dd>
+
+                            <dt>@Html.DisplayNameFor(model => model.Email)</dt>
+                            <dd>@Html.DisplayFor(model => model.Email)</dd>
+
+                            <dt>@Html.DisplayNameFor(model => model.AccountNumber)</dt>
+                            <dd>@Html.DisplayFor(model => model.AccountNumber)</dd>
+
+                            <dt>@Html.DisplayNameFor(model => model.Accounts)</dt>
+                            <dd>@nbAccount</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <script src="~/Scripts/logout-btn.js"></script>
+        </body>
+    </html>
+}

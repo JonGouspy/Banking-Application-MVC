@@ -1,0 +1,103 @@
+﻿@model IEnumerable<BankingApp.Models.User>
+
+@{
+    Layout = null;
+    if (Session["Id"] == null)
+    {
+        Response.Redirect("LogOut");
+    }
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="@Url.Content("~/Content/global.css")" rel="stylesheet" type="text/css" />
+
+    <style>
+        #logout-btn {
+            position: fixed;
+            bottom: 20px;
+            left: 30px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="buttons-section">
+            <h1>ADMIN</h1>
+            @Html.ActionLink("Create New", "Create")
+            @Html.ActionLink("Edit", "Edit", new { id = "__id__" }, new { @class = "editLink userInfo disabled" })
+            @Html.ActionLink("Details", "Details", new { id = "__id__" }, new { @class = "detailsLink userInfo disabled" })
+            @Html.ActionLink("Delete User", "Delete", new { id = "__id__" }, new { @class = "deleteLink userInfo disabled" })
+            @Html.ActionLink("Log Out", "LogOut", null, new { @id = "logout-btn" })
+        </div>
+        <div class="text-section">
+            <h1>Users</h1>
+            <hr />
+            <table class="table" id="userTable">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Id)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FirstName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.LastName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Email)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.AccountNumber)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.UserType)
+                    </th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr data-user-id="@item.Id">
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FirstName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LastName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AccountNumber)
+                        </td>
+                        <td>
+                            @if (item.UserType == 0)
+                            {
+                                @:Administrator
+                            }
+                            else
+                            {
+                                @:Customer
+                            }
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+        <script src="~/Scripts/users-table.js"></script>
+        <script src="~/Scripts/logout-btn.js"></script>
+    </div>
+</body>
+</html>
