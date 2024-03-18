@@ -1,38 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="DBModelStoreContainer" CdmEntityContainer="DBModels">
+  <EntityContainerMapping StorageEntityContainer="BankingDBModelStoreContainer" CdmEntityContainer="DBModels">
     <EntitySetMapping Name="Accounts">
-      <EntityTypeMapping TypeName="DBModel.Account">
+      <EntityTypeMapping TypeName="BankingDBModel.Account">
         <MappingFragment StoreEntitySet="Account">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
-          <ScalarProperty Name="AccountType" ColumnName="AccountType" />
-          <ScalarProperty Name="Balance" ColumnName="Balance" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Transactions">
-      <EntityTypeMapping TypeName="DBModel.Transaction">
-        <MappingFragment StoreEntitySet="Transaction">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="SourceAccountId" ColumnName="SourceAccountId" />
-          <ScalarProperty Name="DestinationAccountId" ColumnName="DestinationAccountId" />
-          <ScalarProperty Name="Amount" ColumnName="Amount" />
-          <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
-          <ScalarProperty Name="TransactionType" ColumnName="TransactionType" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Users">
-      <EntityTypeMapping TypeName="DBModel.User">
-        <MappingFragment StoreEntitySet="User">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="FirstName" ColumnName="FirstName" />
           <ScalarProperty Name="LastName" ColumnName="LastName" />
           <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="Pin" ColumnName="Pin" />
           <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
-          <ScalarProperty Name="UserType" ColumnName="UserType" />
+          <ScalarProperty Name="Pin" ColumnName="Pin" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="AccountType" ColumnName="AccountType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Transactions">
+      <EntityTypeMapping TypeName="BankingDBModel.Transaction">
+        <MappingFragment StoreEntitySet="Transaction">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AccountId" ColumnName="AccountId" />
+          <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+          <ScalarProperty Name="TransactionType" ColumnName="TransactionType" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="RemainingBalance" ColumnName="RemainingBalance" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

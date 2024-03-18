@@ -15,13 +15,12 @@ namespace BankingApp.Models
     public partial class Transaction
     {
         public int Id { get; set; }
-        public int SourceAccountId { get; set; }
-        public int DestinationAccountId { get; set; }
-        public double Amount { get; set; }
+        public int AccountId { get; set; }
         public System.DateTime TransactionDate { get; set; }
         public byte TransactionType { get; set; }
+        public long Amount { get; set; }
+        public long RemainingBalance { get; set; }
     
         public virtual Account Account { get; set; }
-        public virtual Account Account1 { get; set; }
     }
 }

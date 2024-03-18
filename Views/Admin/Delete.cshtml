@@ -1,4 +1,4 @@
-﻿@model BankingApp.Models.User
+﻿@model BankingApp.Models.Account
 
 @{
     Layout = null;
@@ -6,113 +6,131 @@
     {
         Response.Redirect("~/Login/Index");
     }
-
-    int nbAccount = Model.Accounts.Count();
 }
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    <!DOCTYPE html>
+<!DOCTYPE html>
 
-    <html>
-        <head>
-            <meta name="viewport" content="width=device-width" />
-            <title>Delete</title>
-            <link href="@Url.Content("~/Content/global.css")" rel="stylesheet" type="text/css" />
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+    <link href="@Url.Content("~/Content/Global.css")" rel="stylesheet" type="text/css" />
 
-            <style>
-                .input-button {
-                    width: 100%;
-                    font-size: 16px;
-                    display: block;
-                    margin-bottom: 10px;
-                    padding: 10px 20px;
-                    background-color: #4CAF50;
-                    color: white;
-                    border: none;
-                    cursor: pointer;
-                    border-radius: 5px;
-                    text-align: center;
-                    text-decoration: none;
-                    transition: background-color 0.3s;
-                    text-decoration: none;
-                }
+    <style>
+        input {
+            width: 100%;
+            font-size: 16px;
+            display: block;
+            margin-bottom: 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            text-decoration: none;
+        }
 
-                .input-button:focus,
-                .input-button:hover {
-                    background-color: #45A049;
-                }
+        input:focus,
+        input:hover {
+            background-color: #45A049;
+        }
 
-                .account-delete {
-                    margin-bottom: 20px;
-                }
+        #logout-btn {
+            position: fixed;
+            bottom: 20px;
+            left: 30px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
 
-                .dl-horizontal dt {
-                    font-weight: bold;
-                    margin-bottom: 5px;
-                }
+<body>
+    <div class="container">
+        <div class="buttons-section">
+            <h1>ADMIN</h1>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
 
-                .dl-horizontal dd {
-                    margin-left: 0;
-                    margin-bottom: 30px;
-                }
+                <input type="submit" value="Confirm" readonly />
+            }
 
-                input {
-                    display: block;
-                    width: 45%;
-                    margin-bottom: 15px;
-                    padding: 10px;
-                    box-sizing: border-box;
-                    border: 1px solid #ddd;
-                    border-radius: 5px;
-                }
+            @Html.ActionLink("Back to List", "Index")
+            @Html.ActionLink("Log Out", "LogOut", null, new { @id = "logout-btn" })
+        </div>
+        <div class="text-section">
+            <h2>Are you sure you want to delete this?</h2>
+            <div>
+                <h3>Account</h3>
+                <hr />
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.FirstName)
+                    </dt>
 
-                #logout-btn {
-                    position: fixed;
-                    bottom: 20px;
-                    left: 30px;
-                    padding: 10px 20px;
-                    border: none;
-                    border-radius: 5px;
-                    cursor: pointer;
-                }
-            </style>
-        </head>
+                    <dd>
+                        @Html.DisplayFor(model => model.FirstName)
+                    </dd>
 
-        <body>
-            <div class="container">
-                <div class="buttons-section">
-                    <h1>ADMIN</h1>
-                    <input type="submit" value="Confirm" class="input-button"/>
-                    @Html.ActionLink("Back to List", "Index")
-                    @Html.ActionLink("Log Out", "LogOut", null, new { @id = "logout-btn" })
-                </div>
-                <div class="text-section">
-                    <h2>Are you sure you want to delete this?</h2>
-                    <h3>User</h3>
-                    <hr />
-                    <div class="account-details">
-                        <dl class="dl-horizontal">
-                            <dt>@Html.DisplayNameFor(model => model.FirstName)</dt>
-                            <dd>@Html.DisplayFor(model => model.FirstName)</dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.LastName)
+                    </dt>
 
-                            <dt>@Html.DisplayNameFor(model => model.LastName)</dt>
-                            <dd>@Html.DisplayFor(model => model.LastName)</dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.LastName)
+                    </dd>
 
-                            <dt>@Html.DisplayNameFor(model => model.Email)</dt>
-                            <dd>@Html.DisplayFor(model => model.Email)</dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Email)
+                    </dt>
 
-                            <dt>@Html.DisplayNameFor(model => model.AccountNumber)</dt>
-                            <dd>@Html.DisplayFor(model => model.AccountNumber)</dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.Email)
+                    </dd>
 
-                            <dt>@Html.DisplayNameFor(model => model.Accounts)</dt>
-                            <dd>@nbAccount</dd>
-                        </dl>
-                    </div>
-                </div>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.AccountNumber)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.AccountNumber)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Pin)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Pin)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Balance)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Balance)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.AccountType)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.AccountType)
+                    </dd>
+
+                </dl>
             </div>
-            <script src="~/Scripts/logout-btn.js"></script>
-        </body>
-    </html>
-}
+        </div>
+    </div>
+    <script src="~/Scripts/LogOut-btn.js"></script>
+</body>
+</html>

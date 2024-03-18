@@ -1,4 +1,4 @@
-﻿@model BankingApp.Models.User
+﻿@model BankingApp.Models.Account
 
 @{
     Layout = null;
@@ -8,115 +8,106 @@
     }
 }
 
+<!DOCTYPE html>
 
-@using (Html.BeginForm())
-{
-    <!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+    <link href="@Url.Content("~/Content/Global.css")" rel="stylesheet" type="text/css" />
 
-    <html>
-    <head>
-        <meta name="viewport" content="width=device-width" />
-        <title>Create</title>
-        <link href="@Url.Content("~/Content/global.css")" rel="stylesheet" type="text/css" />
+    <style>
+        #logout-btn {
+            position: fixed;
+            bottom: 20px;
+            left: 30px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="buttons-section">
+            @Html.ActionLink("Back to List", "Index")
+            @Html.ActionLink("Log Out", "LogOut", null, new { @id = "logout-btn" })
+        </div>
+        <div class="text-section">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
 
-        <style>
-            .input-button {
-                width: 100%;
-                font-size: 16px;
-                display: block;
-                margin-bottom: 10px;
-                padding: 10px 20px;
-                background-color: #4CAF50;
-                color: white;
-                border: none;
-                cursor: pointer;
-                border-radius: 5px;
-                text-align: center;
-                text-decoration: none;
-                transition: background-color 0.3s;
-                text-decoration: none;
-            }
-
-            .input-button:focus,
-            .input-button:hover {
-                background-color: #45A049;
-            }
-
-            .account-create {
-                margin-bottom: 20px;
-            }
-
-            .dl-horizontal dt {
-                font-weight: bold;
-                margin-bottom: 5px;
-            }
-
-            .dl-horizontal dd {
-                margin-left: 0;
-                margin-bottom: 30px;
-            }
-
-            input {
-                display: block;
-                width: 45%;
-                margin-bottom: 15px;
-                padding: 10px;
-                box-sizing: border-box;
-                border: 1px solid #ddd;
-                border-radius: 5px;
-            }
-
-            #logout-btn {
-                position: fixed;
-                bottom: 20px;
-                left: 30px;
-                padding: 10px 20px;
-                border: none;
-                border-radius: 5px;
-                cursor: pointer;
-            }
-        </style>
-    </head>
-
-    <body>
-        @Html.AntiForgeryToken()
-        <div class="container">
-            <div class="buttons-section">
-                <h1>ADMIN</h1>
-                <input type="submit" value="Create" class="input-button" />
-                @Html.ActionLink("Back to List", "Index")
-                @Html.ActionLink("Log Out", "LogOut", null, new { @id = "logout-btn" })
-            </div>
-            <div class="text-section">
-                <h3>User</h3>
-                <hr />
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                @Html.HiddenFor(model => model.Id)
-
-                <div class="account-create">
-                    <dl class="dl-horizontal">
-                        <dt>@Html.DisplayNameFor(model => model.FirstName)</dt>
-                        <dd>
+                <div class="form-horizontal">
+                    <h4>Account</h4>
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
                             @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
                             @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
-                        </dd>
+                        </div>
+                    </div>
 
-                        <dt>@Html.DisplayNameFor(model => model.LastName)</dt>
-                        <dd>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
                             @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
                             @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
-                        </dd>
+                        </div>
+                    </div>
 
-                        <dt>@Html.DisplayNameFor(model => model.Email)</dt>
-                        <dd>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
                             @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
                             @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-                        </dd>
-                    </dl>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.AccountNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.AccountNumber, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.AccountNumber, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Pin, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Pin, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Pin, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Balance, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Balance, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Balance, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.AccountType, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.AccountType, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.AccountType, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Create" class="btn btn-default" />
+                        </div>
+                    </div>
                 </div>
-            </div>
+            }
         </div>
-        <script src="~/Scripts/logout-btn.js"></script>
-    </body>
+    </div>
+    <script src="~/Scripts/LogOut-btn.js"></script>
+</body>
 </html>
-}

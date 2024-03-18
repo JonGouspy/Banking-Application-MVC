@@ -11,29 +11,42 @@ namespace BankingApp.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Account
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Account()
         {
             this.Transactions = new HashSet<Transaction>();
-            this.Transactions1 = new HashSet<Transaction>();
         }
     
         public int Id { get; set; }
-        public int UserId { get; set; }
-        public byte AccountType { get; set; }
-        public double Balance { get; set; }
+        [DisplayName("First Name")]
+        [Required(ErrorMessage="This Field is Required")]
+        public string FirstName { get; set; }
+        [DisplayName("Last Name")]
+        [Required(ErrorMessage = "This Field is Required")]
+        public string LastName { get; set; }
+        public string Email { get; set; }
+        [DisplayName("Account Number")]
+        public string AccountNumber { get; set; }
+        [DataType(DataType.Password)]
+        [Required(ErrorMessage = "This Field is Required")]
+        public string Pin { get; set; }
+        public Nullable<long> Balance { get; set; }
+        [DisplayName("Account Type")]
+        [Required(ErrorMessage = "This Field is Required")]
+        public Nullable<short> AccountType { get; set; }
     
-        public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Transaction> Transactions { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Transaction> Transactions1 { get; set; }
+        public string LoginErrorMessage { get; set; }
 
         public enum EAccountType
         {
+            Admin,
             Current,
             Saving,
         }

@@ -1,4 +1,4 @@
-﻿@model BankingApp.Models.User
+﻿@model BankingApp.Models.Account
 
 @{
     Layout = null;
@@ -14,7 +14,7 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Edit</title>
-    <link href="@Url.Content("~/Content/global.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/Global.css")" rel="stylesheet" type="text/css" />
 
     <style>
         .input-button {
@@ -39,30 +39,6 @@
             background-color: #45A049;
         }
 
-        .account-edit {
-            margin-bottom: 20px;
-        }
-
-        .dl-horizontal dt {
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        .dl-horizontal dd {
-            margin-left: 0;
-            margin-bottom: 30px;
-        }
-
-        input {
-            display: block;
-            width: 45%;
-            margin-bottom: 15px;
-            padding: 10px;
-            box-sizing: border-box;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-
         #logout-btn {
             position: fixed;
             bottom: 20px;
@@ -84,34 +60,44 @@
             @Html.ActionLink("Log Out", "LogOut", null, new { @id = "logout-btn" })
         </div>
         <div class="text-section">
-            <h3>User</h3>
-            <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            @Html.HiddenFor(model => model.Id)
+                <h3>Account</h3>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.Id)
 
-            <div class="account-edit">
-                <dl class="dl-horizontal">
-                    <dt>@Html.DisplayNameFor(model => model.FirstName)</dt>
-                    <dd>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
                         @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
-                    </dd>
+                    </div>
+                </div>
 
-                    <dt>@Html.DisplayNameFor(model => model.LastName)</dt>
-                    <dd>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
                         @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
-                    </dd>
+                    </div>
+                </div>
 
-                    <dt>@Html.DisplayNameFor(model => model.Email)</dt>
-                    <dd>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
                         @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-                    </dd>
-                </dl>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.AccountType, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.AccountType, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.AccountType, "", new { @class = "text-danger" })
+                    </div>
+                </div>
             </div>
-        </div>
     </div>
-    <script src="~/Scripts/logout-btn.js"></script>
+    <script src="~/Scripts/LogOut-btn.js"></script>
 </body>
 </html>

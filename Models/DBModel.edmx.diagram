@@ -4,13 +4,10 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="bb12563296c645cab5e2600c89924063" Name="Diagram1">
-        <EntityTypeShape EntityType="DBModel.Account" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBModel.Transaction" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBModel.User" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
-        <AssociationConnector Association="DBModel.FK__Account__UserId__3E52440B" ManuallyRouted="false" />
-        <AssociationConnector Association="DBModel.FK__Transacti__Desti__4316F928" ManuallyRouted="false" />
-        <AssociationConnector Association="DBModel.FK__Transacti__Sourc__412EB0B6" ManuallyRouted="false" />
+      <Diagram DiagramId="6f63bb7825874266aa8a703dcadcde8e" Name="Diagram1">
+        <EntityTypeShape EntityType="BankingDBModel.Account" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="BankingDBModel.Transaction" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <AssociationConnector Association="BankingDBModel.FK__Transacti__Accou__3C69FB99" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

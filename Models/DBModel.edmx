@@ -4,52 +4,32 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="BankingDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Account">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="UserId" Type="int" Nullable="false" />
-          <Property Name="AccountType" Type="tinyint" Nullable="false" />
-          <Property Name="Balance" Type="float" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Transaction">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="SourceAccountId" Type="int" Nullable="false" />
-          <Property Name="DestinationAccountId" Type="int" Nullable="false" />
-          <Property Name="Amount" Type="float" Nullable="false" />
-          <Property Name="TransactionDate" Type="date" Nullable="false" />
-          <Property Name="TransactionType" Type="tinyint" Nullable="false" />
-        </EntityType>
-        <EntityType Name="User">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Pin" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
           <Property Name="AccountNumber" Type="varchar" MaxLength="50" />
-          <Property Name="UserType" Type="tinyint" Nullable="false" />
+          <Property Name="Pin" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Balance" Type="bigint" />
+          <Property Name="AccountType" Type="smallint" />
         </EntityType>
-        <Association Name="FK__Account__UserId__3E52440B">
-          <End Role="User" Type="Self.User" Multiplicity="1" />
-          <End Role="Account" Type="Self.Account" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Account">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Transacti__Desti__4316F928">
+        <EntityType Name="Transaction">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AccountId" Type="int" Nullable="false" />
+          <Property Name="TransactionDate" Type="date" Nullable="false" />
+          <Property Name="TransactionType" Type="tinyint" Nullable="false" />
+          <Property Name="Amount" Type="bigint" Nullable="false" />
+          <Property Name="RemainingBalance" Type="bigint" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Transacti__Accou__3C69FB99">
           <End Role="Account" Type="Self.Account" Multiplicity="1" />
           <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
           <ReferentialConstraint>
@@ -57,35 +37,14 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Transaction">
-              <PropertyRef Name="DestinationAccountId" />
+              <PropertyRef Name="AccountId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Transacti__Sourc__412EB0B6">
-          <End Role="Account" Type="Self.Account" Multiplicity="1" />
-          <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Account">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Transaction">
-              <PropertyRef Name="SourceAccountId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityContainer Name="DBModelStoreContainer">
+        <EntityContainer Name="BankingDBModelStoreContainer">
           <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Transaction" EntityType="Self.Transaction" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Account__UserId__3E52440B" Association="Self.FK__Account__UserId__3E52440B">
-            <End Role="User" EntitySet="User" />
-            <End Role="Account" EntitySet="Account" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Transacti__Desti__4316F928" Association="Self.FK__Transacti__Desti__4316F928">
-            <End Role="Account" EntitySet="Account" />
-            <End Role="Transaction" EntitySet="Transaction" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Transacti__Sourc__412EB0B6" Association="Self.FK__Transacti__Sourc__412EB0B6">
+          <AssociationSet Name="FK__Transacti__Accou__3C69FB99" Association="Self.FK__Transacti__Accou__3C69FB99">
             <End Role="Account" EntitySet="Account" />
             <End Role="Transaction" EntitySet="Transaction" />
           </AssociationSet>
@@ -94,58 +53,34 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="BankingDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Account">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserId" Type="Int32" Nullable="false" />
-          <Property Name="AccountType" Type="Byte" Nullable="false" />
-          <Property Name="Balance" Type="Double" Nullable="false" />
-          <NavigationProperty Name="User" Relationship="Self.FK__Account__UserId__3E52440B" FromRole="Account" ToRole="User" />
-          <NavigationProperty Name="Transactions" Relationship="Self.FK__Transacti__Desti__4316F928" FromRole="Account" ToRole="Transaction" />
-          <NavigationProperty Name="Transactions1" Relationship="Self.FK__Transacti__Sourc__412EB0B6" FromRole="Account" ToRole="Transaction" />
-        </EntityType>
-        <EntityType Name="Transaction">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="SourceAccountId" Type="Int32" Nullable="false" />
-          <Property Name="DestinationAccountId" Type="Int32" Nullable="false" />
-          <Property Name="Amount" Type="Double" Nullable="false" />
-          <Property Name="TransactionDate" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="TransactionType" Type="Byte" Nullable="false" />
-          <NavigationProperty Name="Account" Relationship="Self.FK__Transacti__Desti__4316F928" FromRole="Transaction" ToRole="Account" />
-          <NavigationProperty Name="Account1" Relationship="Self.FK__Transacti__Sourc__412EB0B6" FromRole="Transaction" ToRole="Account" />
-        </EntityType>
-        <EntityType Name="User">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Pin" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="AccountNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="UserType" Type="Byte" Nullable="false" />
-          <NavigationProperty Name="Accounts" Relationship="Self.FK__Account__UserId__3E52440B" FromRole="User" ToRole="Account" />
+          <Property Name="Pin" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Balance" Type="Int64" />
+          <Property Name="AccountType" Type="Int16" />
+          <NavigationProperty Name="Transactions" Relationship="Self.FK__Transacti__Accou__3C69FB99" FromRole="Account" ToRole="Transaction" />
         </EntityType>
-        <Association Name="FK__Account__UserId__3E52440B">
-          <End Role="User" Type="Self.User" Multiplicity="1" />
-          <End Role="Account" Type="Self.Account" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Account">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Transacti__Desti__4316F928">
+        <EntityType Name="Transaction">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AccountId" Type="Int32" Nullable="false" />
+          <Property Name="TransactionDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="TransactionType" Type="Byte" Nullable="false" />
+          <Property Name="Amount" Type="Int64" Nullable="false" />
+          <Property Name="RemainingBalance" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Account" Relationship="Self.FK__Transacti__Accou__3C69FB99" FromRole="Transaction" ToRole="Account" />
+        </EntityType>
+        <Association Name="FK__Transacti__Accou__3C69FB99">
           <End Role="Account" Type="Self.Account" Multiplicity="1" />
           <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
           <ReferentialConstraint>
@@ -153,35 +88,14 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Transaction">
-              <PropertyRef Name="DestinationAccountId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Transacti__Sourc__412EB0B6">
-          <End Role="Account" Type="Self.Account" Multiplicity="1" />
-          <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Account">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Transaction">
-              <PropertyRef Name="SourceAccountId" />
+              <PropertyRef Name="AccountId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="DBModels" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Accounts" EntityType="Self.Account" />
           <EntitySet Name="Transactions" EntityType="Self.Transaction" />
-          <EntitySet Name="Users" EntityType="Self.User" />
-          <AssociationSet Name="FK__Account__UserId__3E52440B" Association="Self.FK__Account__UserId__3E52440B">
-            <End Role="User" EntitySet="Users" />
-            <End Role="Account" EntitySet="Accounts" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Transacti__Desti__4316F928" Association="Self.FK__Transacti__Desti__4316F928">
-            <End Role="Account" EntitySet="Accounts" />
-            <End Role="Transaction" EntitySet="Transactions" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Transacti__Sourc__412EB0B6" Association="Self.FK__Transacti__Sourc__412EB0B6">
+          <AssociationSet Name="FK__Transacti__Accou__3C69FB99" Association="Self.FK__Transacti__Accou__3C69FB99">
             <End Role="Account" EntitySet="Accounts" />
             <End Role="Transaction" EntitySet="Transactions" />
           </AssociationSet>
@@ -191,39 +105,30 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="DBModelStoreContainer" CdmEntityContainer="DBModels">
+        <EntityContainerMapping StorageEntityContainer="BankingDBModelStoreContainer" CdmEntityContainer="DBModels">
           <EntitySetMapping Name="Accounts">
-            <EntityTypeMapping TypeName="DBModel.Account">
+            <EntityTypeMapping TypeName="BankingDBModel.Account">
               <MappingFragment StoreEntitySet="Account">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="AccountType" ColumnName="AccountType" />
-                <ScalarProperty Name="Balance" ColumnName="Balance" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Transactions">
-            <EntityTypeMapping TypeName="DBModel.Transaction">
-              <MappingFragment StoreEntitySet="Transaction">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="SourceAccountId" ColumnName="SourceAccountId" />
-                <ScalarProperty Name="DestinationAccountId" ColumnName="DestinationAccountId" />
-                <ScalarProperty Name="Amount" ColumnName="Amount" />
-                <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
-                <ScalarProperty Name="TransactionType" ColumnName="TransactionType" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="DBModel.User">
-              <MappingFragment StoreEntitySet="User">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Pin" ColumnName="Pin" />
                 <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
-                <ScalarProperty Name="UserType" ColumnName="UserType" />
+                <ScalarProperty Name="Pin" ColumnName="Pin" />
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+                <ScalarProperty Name="AccountType" ColumnName="AccountType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Transactions">
+            <EntityTypeMapping TypeName="BankingDBModel.Transaction">
+              <MappingFragment StoreEntitySet="Transaction">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="AccountId" ColumnName="AccountId" />
+                <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+                <ScalarProperty Name="TransactionType" ColumnName="TransactionType" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="RemainingBalance" ColumnName="RemainingBalance" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

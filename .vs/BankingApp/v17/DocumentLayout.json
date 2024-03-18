@@ -1,30 +1,42 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\jongo\\Desktop\\Dorset College\\OOP\\BankingApp\\",
+  "WorkspaceRootPath": "C:\\Users\\jongo\\Desktop\\Dorset College\\OOP\\AAATEMP\\BankingApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8065EC56-C93C-41C8-AD61-7DD1E656AED6}|BankingApp.csproj|c:\\users\\jongo\\desktop\\dorset college\\oop\\bankingapp\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8065EC56-C93C-41C8-AD61-7DD1E656AED6}|BankingApp.csproj|solutionrelative:controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8930995A-D6AB-4F87-B71A-1F01CF87D3F8}|BankingApp.csproj|c:\\users\\jongo\\desktop\\dorset college\\oop\\aaatemp\\bankingapp\\models\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8930995A-D6AB-4F87-B71A-1F01CF87D3F8}|BankingApp.csproj|solutionrelative:models\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8065EC56-C93C-41C8-AD61-7DD1E656AED6}|BankingApp.csproj|c:\\users\\jongo\\desktop\\dorset college\\oop\\bankingapp\\models\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8065EC56-C93C-41C8-AD61-7DD1E656AED6}|BankingApp.csproj|solutionrelative:models\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8930995A-D6AB-4F87-B71A-1F01CF87D3F8}|BankingApp.csproj|c:\\users\\jongo\\desktop\\dorset college\\oop\\aaatemp\\bankingapp\\models\\transaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8930995A-D6AB-4F87-B71A-1F01CF87D3F8}|BankingApp.csproj|solutionrelative:models\\transaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8065EC56-C93C-41C8-AD61-7DD1E656AED6}|BankingApp.csproj|c:\\users\\jongo\\desktop\\dorset college\\oop\\bankingapp\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8065EC56-C93C-41C8-AD61-7DD1E656AED6}|BankingApp.csproj|solutionrelative:controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8930995A-D6AB-4F87-B71A-1F01CF87D3F8}|BankingApp.csproj|c:\\users\\jongo\\desktop\\dorset college\\oop\\aaatemp\\bankingapp\\models\\dbmodel.tt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{8930995A-D6AB-4F87-B71A-1F01CF87D3F8}|BankingApp.csproj|solutionrelative:models\\dbmodel.tt||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8065EC56-C93C-41C8-AD61-7DD1E656AED6}|BankingApp.csproj|c:\\users\\jongo\\desktop\\dorset college\\oop\\bankingapp\\views\\admin\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8065EC56-C93C-41C8-AD61-7DD1E656AED6}|BankingApp.csproj|solutionrelative:views\\admin\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{8930995A-D6AB-4F87-B71A-1F01CF87D3F8}|BankingApp.csproj|c:\\users\\jongo\\desktop\\dorset college\\oop\\aaatemp\\bankingapp\\views\\admin\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8930995A-D6AB-4F87-B71A-1F01CF87D3F8}|BankingApp.csproj|solutionrelative:views\\admin\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8065EC56-C93C-41C8-AD61-7DD1E656AED6}|BankingApp.csproj|c:\\users\\jongo\\desktop\\dorset college\\oop\\bankingapp\\views\\admin\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8065EC56-C93C-41C8-AD61-7DD1E656AED6}|BankingApp.csproj|solutionrelative:views\\admin\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{8930995A-D6AB-4F87-B71A-1F01CF87D3F8}|BankingApp.csproj|C:\\Users\\jongo\\Desktop\\Dorset College\\OOP\\AAATEMP\\BankingApp\\views\\admin\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8930995A-D6AB-4F87-B71A-1F01CF87D3F8}|BankingApp.csproj|solutionrelative:views\\admin\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8065EC56-C93C-41C8-AD61-7DD1E656AED6}|BankingApp.csproj|c:\\users\\jongo\\desktop\\dorset college\\oop\\bankingapp\\controllers\\transactionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8065EC56-C93C-41C8-AD61-7DD1E656AED6}|BankingApp.csproj|solutionrelative:controllers\\transactionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8930995A-D6AB-4F87-B71A-1F01CF87D3F8}|BankingApp.csproj|C:\\Users\\jongo\\Desktop\\Dorset College\\OOP\\AAATEMP\\BankingApp\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8930995A-D6AB-4F87-B71A-1F01CF87D3F8}|BankingApp.csproj|solutionrelative:controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8930995A-D6AB-4F87-B71A-1F01CF87D3F8}|BankingApp.csproj|C:\\Users\\jongo\\Desktop\\Dorset College\\OOP\\AAATEMP\\BankingApp\\views\\admin\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8930995A-D6AB-4F87-B71A-1F01CF87D3F8}|BankingApp.csproj|solutionrelative:views\\admin\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8930995A-D6AB-4F87-B71A-1F01CF87D3F8}|BankingApp.csproj|C:\\Users\\jongo\\Desktop\\Dorset College\\OOP\\AAATEMP\\BankingApp\\views\\admin\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8930995A-D6AB-4F87-B71A-1F01CF87D3F8}|BankingApp.csproj|solutionrelative:views\\admin\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8930995A-D6AB-4F87-B71A-1F01CF87D3F8}|BankingApp.csproj|C:\\Users\\jongo\\Desktop\\Dorset College\\OOP\\AAATEMP\\BankingApp\\views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8930995A-D6AB-4F87-B71A-1F01CF87D3F8}|BankingApp.csproj|solutionrelative:views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,81 +50,115 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "TransactionsController.cs",
-              "DocumentMoniker": "C:\\Users\\jongo\\Desktop\\Dorset College\\OOP\\BankingApp\\Controllers\\TransactionsController.cs",
-              "RelativeDocumentMoniker": "Controllers\\TransactionsController.cs",
-              "ToolTip": "C:\\Users\\jongo\\Desktop\\Dorset College\\OOP\\BankingApp\\Controllers\\TransactionsController.cs",
-              "RelativeToolTip": "Controllers\\TransactionsController.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAABQAAAAvAAAA",
+              "DocumentIndex": 1,
+              "Title": "Transaction.cs",
+              "DocumentMoniker": "C:\\Users\\jongo\\Desktop\\Dorset College\\OOP\\AAATEMP\\BankingApp\\Models\\Transaction.cs",
+              "RelativeDocumentMoniker": "Models\\Transaction.cs",
+              "ToolTip": "C:\\Users\\jongo\\Desktop\\Dorset College\\OOP\\AAATEMP\\BankingApp\\Models\\Transaction.cs",
+              "RelativeToolTip": "Models\\Transaction.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAyAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-13T10:38:20.716Z",
+              "WhenOpened": "2024-03-18T11:06:00.599Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "LoginController.cs",
-              "DocumentMoniker": "C:\\Users\\jongo\\Desktop\\Dorset College\\OOP\\BankingApp\\Controllers\\LoginController.cs",
-              "RelativeDocumentMoniker": "Controllers\\LoginController.cs",
-              "ToolTip": "C:\\Users\\jongo\\Desktop\\Dorset College\\OOP\\BankingApp\\Controllers\\LoginController.cs",
-              "RelativeToolTip": "Controllers\\LoginController.cs",
-              "ViewState": "AQIAAB8AAAAAAAAAAAAkwDMAAAAmAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-13T10:29:02.29Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Delete.cshtml",
-              "DocumentMoniker": "C:\\Users\\jongo\\Desktop\\Dorset College\\OOP\\BankingApp\\Views\\Admin\\Delete.cshtml",
-              "RelativeDocumentMoniker": "Views\\Admin\\Delete.cshtml",
-              "ToolTip": "C:\\Users\\jongo\\Desktop\\Dorset College\\OOP\\BankingApp\\Views\\Admin\\Delete.cshtml",
-              "RelativeToolTip": "Views\\Admin\\Delete.cshtml",
-              "ViewState": "AQIAADwAAAAAAAAAAAAAAA0AAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-03-13T09:16:57.611Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "Account.cs",
-              "DocumentMoniker": "C:\\Users\\jongo\\Desktop\\Dorset College\\OOP\\BankingApp\\Models\\Account.cs",
+              "DocumentMoniker": "C:\\Users\\jongo\\Desktop\\Dorset College\\OOP\\AAATEMP\\BankingApp\\Models\\Account.cs",
               "RelativeDocumentMoniker": "Models\\Account.cs",
-              "ToolTip": "C:\\Users\\jongo\\Desktop\\Dorset College\\OOP\\BankingApp\\Models\\Account.cs",
+              "ToolTip": "C:\\Users\\jongo\\Desktop\\Dorset College\\OOP\\AAATEMP\\BankingApp\\Models\\Account.cs",
               "RelativeToolTip": "Models\\Account.cs",
-              "ViewState": "AQIAAAsAAAAAAAAAAAAQwBcAAAAjAAAA",
+              "ViewState": "AQIAABYAAAAAAAAAAAAQwB8AAAApAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-12T19:42:01.009Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Details.cshtml",
-              "DocumentMoniker": "C:\\Users\\jongo\\Desktop\\Dorset College\\OOP\\BankingApp\\Views\\Admin\\Details.cshtml",
-              "RelativeDocumentMoniker": "Views\\Admin\\Details.cshtml",
-              "ToolTip": "C:\\Users\\jongo\\Desktop\\Dorset College\\OOP\\BankingApp\\Views\\Admin\\Details.cshtml",
-              "RelativeToolTip": "Views\\Admin\\Details.cshtml",
-              "ViewState": "AQIAACoAAAAAAAAAAAAAADUAAACjAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-03-12T17:50:49.005Z",
+              "WhenOpened": "2024-03-18T11:05:58.557Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "AdminController.cs",
-              "DocumentMoniker": "C:\\Users\\jongo\\Desktop\\Dorset College\\OOP\\BankingApp\\Controllers\\AdminController.cs",
-              "RelativeDocumentMoniker": "Controllers\\AdminController.cs",
-              "ToolTip": "C:\\Users\\jongo\\Desktop\\Dorset College\\OOP\\BankingApp\\Controllers\\AdminController.cs",
-              "RelativeToolTip": "Controllers\\AdminController.cs",
-              "ViewState": "AQIAAJEAAAAAAAAAAAAcwOwAAAAaAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-12T13:57:30.645Z",
+              "Title": "DBModel.tt",
+              "DocumentMoniker": "C:\\Users\\jongo\\Desktop\\Dorset College\\OOP\\AAATEMP\\BankingApp\\Models\\DBModel.tt",
+              "RelativeDocumentMoniker": "Models\\DBModel.tt",
+              "ToolTip": "C:\\Users\\jongo\\Desktop\\Dorset College\\OOP\\AAATEMP\\BankingApp\\Models\\DBModel.tt",
+              "RelativeToolTip": "Models\\DBModel.tt",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2024-03-18T11:05:57.143Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\jongo\\Desktop\\Dorset College\\OOP\\AAATEMP\\BankingApp\\Views\\Admin\\Create.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\Create.cshtml",
+              "ToolTip": "C:\\Users\\jongo\\Desktop\\Dorset College\\OOP\\AAATEMP\\BankingApp\\Views\\Admin\\Create.cshtml",
+              "RelativeToolTip": "Views\\Admin\\Create.cshtml",
+              "ViewState": "AQIAADYAAAAAAAAAAAD4vycAAAALAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-03-12T13:15:15.647Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "C:\\Users\\jongo\\Desktop\\Dorset College\\OOP\\AAATEMP\\BankingApp\\Views\\Admin\\Delete.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\Delete.cshtml",
+              "ToolTip": "C:\\Users\\jongo\\Desktop\\Dorset College\\OOP\\AAATEMP\\BankingApp\\Views\\Admin\\Delete.cshtml",
+              "RelativeToolTip": "Views\\Admin\\Delete.cshtml",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAkwDcAAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-03-12T13:14:09.124Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\jongo\\Desktop\\Dorset College\\OOP\\AAATEMP\\BankingApp\\Views\\Admin\\Details.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\Details.cshtml",
+              "ToolTip": "C:\\Users\\jongo\\Desktop\\Dorset College\\OOP\\AAATEMP\\BankingApp\\Views\\Admin\\Details.cshtml",
+              "RelativeToolTip": "Views\\Admin\\Details.cshtml",
+              "ViewState": "AQIAADoAAAAAAAAAAAAkwE0AAAA4AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-03-12T13:10:12.59Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\jongo\\Desktop\\Dorset College\\OOP\\AAATEMP\\BankingApp\\Views\\Admin\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\jongo\\Desktop\\Dorset College\\OOP\\AAATEMP\\BankingApp\\Views\\Admin\\Edit.cshtml",
+              "RelativeToolTip": "Views\\Admin\\Edit.cshtml",
+              "ViewState": "AQIAAEQAAAAAAAAAAAAkwGcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-03-12T13:06:29.544Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\jongo\\Desktop\\Dorset College\\OOP\\AAATEMP\\BankingApp\\Views\\Admin\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\Index.cshtml",
+              "ToolTip": "C:\\Users\\jongo\\Desktop\\Dorset College\\OOP\\AAATEMP\\BankingApp\\Views\\Admin\\Index.cshtml",
+              "RelativeToolTip": "Views\\Admin\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAAAHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-03-12T12:52:31.044Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "C:\\Users\\jongo\\Desktop\\Dorset College\\OOP\\AAATEMP\\BankingApp\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AdminController.cs",
+              "ToolTip": "C:\\Users\\jongo\\Desktop\\Dorset College\\OOP\\AAATEMP\\BankingApp\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "Controllers\\AdminController.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAEgAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-12T12:42:23.299Z"
             }
           ]
         }

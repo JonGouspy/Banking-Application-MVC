@@ -16,31 +16,33 @@ namespace BankingApp.Controllers
         }
 
         [HttpPost]
-        public ActionResult Authorise(User user)
+        public ActionResult Authorise(Account account)
         {
             using (DBModels db = new DBModels())
             {
-                var userDetail = db.Users.Where(x => x.FirstName == user.FirstName && x.LastName == user.LastName && x.Pin == user.Pin).FirstOrDefault();
+                var accountDetail = db.Accounts.Where(x => x.FirstName == account.FirstName && x.LastName == account.LastName && x.Pin == account.Pin).FirstOrDefault();
 
-                if (userDetail == null)
+                if (accountDetail == null)
                 {
-                    user.LoginErrorMessage = "Wrong name or password";
+                    account.LoginErrorMessage = "Wrong name or password";
 
-                    return View("Index", user);
+                    return View("Index", account);
                 }
                 else
                 {
-                    Session["FirstName"] = user.FirstName;
-                    Session["LastName"] = user.LastName;
-                    Session["Id"] = user.Id;
+                    Session["FirstName"] = account.FirstName;
+                    Session["LastName"] = account.LastName;
+                    Session["Id"] = account.Id;
 
 
-                    if (userDetail.UserType == (byte)Models.User.EUserType.Administrator)
+                    if (accountDetail.AccountType == (short)Account.EAccountType.Admin)
                     {
                         return RedirectToAction("Index", "Admin");
                     }
-                    
-                    return RedirectToAction("Index", "Home");
+                    else
+                    {
+                        return RedirectToAction("Index", "Home");
+                    }
                 }
             }
         }
@@ -50,14 +52,12 @@ namespace BankingApp.Controllers
             int? id;
 
             if (Session["Id"] == null)
-            {
                 id = null;
-            }
             else
-            {
                 id = (int)Session["Id"];
-            }
+
             Session.Abandon();
+
             return RedirectToAction("Index", "Login");
         }
     }

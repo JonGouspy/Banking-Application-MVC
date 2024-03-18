@@ -1,4 +1,4 @@
-﻿@model BankingApp.Models.User
+﻿@model BankingApp.Models.Account
 
 @{
     Layout = null;
@@ -8,110 +8,86 @@
     }
 }
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    {
-    <!DOCTYPE html>
+<!DOCTYPE html>
 
-    <html>
-    <head>
-        <meta name="viewport" content="width=device-width" />
-        <title>Details</title>
-        <link href="@Url.Content("~/Content/global.css")" rel="stylesheet" type="text/css" />
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+    <link href="@Url.Content("~/Content/Global.css")" rel="stylesheet" type="text/css" />
 
-        <style>
-            .account-details {
-                margin-bottom: 20px;
-            }
+    <style>
+        #logout-btn {
+            position: fixed;
+            bottom: 20px;
+            left: 30px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
 
-            .dl-horizontal dt {
-                font-weight: bold;
-                margin-bottom: 5px;
-            }
+        .account-details {
+            margin-bottom: 20px;
+        }
 
-            .dl-horizontal dd {
-                margin-left: 0;
-                margin-bottom: 30px;
-            }
+        .dl-horizontal dt {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
 
-            #logout-btn {
-                position: fixed;
-                bottom: 20px;
-                left: 30px;
-                padding: 10px 20px;
-                border: none;
-                border-radius: 5px;
-                cursor: pointer;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="buttons-section">
-                <h1>ADMIN</h1>
-                @Html.ActionLink("Transaction", "Index", new { id = "__id__" }, new { @class = "transaction detailsLink accountInfo disabled" })
-                @Html.ActionLink("Create Current Account", "CreateAccount", new { id = Model.Id, accountType = (byte)BankingApp.Models.Account.EAccountType.Current })
-                @Html.ActionLink("Create Saving Account", "CreateAccount", new { id = Model.Id, accountType = (byte)BankingApp.Models.Account.EAccountType.Saving })
-                @Html.ActionLink("Delete Account", "DeleteAccount", new { accountId = "__id__" }, new { @class = "deleteLink accountInfo disabled" })
-                @Html.ActionLink("Back to List", "Index")
-                @Html.ActionLink("Log Out", "LogOut", null, new { @id = "logout-btn" })
-            </div>
-            <div class="text-section">
-                <h3>User</h3>
-                <hr />
-                <div class="account-details">
-                    <dl class="dl-horizontal">
-                        <dt>@Html.DisplayNameFor(model => model.FirstName)</dt>
-                        <dd>@Html.DisplayFor(model => model.FirstName)</dd>
+        .dl-horizontal dd {
+            margin-left: 0;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="buttons-section">
+            <h1>ADMIN</h1>
+            @Html.ActionLink("Back to List", "Index")
+            @Html.ActionLink("Log Out", "LogOut", null, new { @id = "logout-btn" })
+        </div>
+        <div class="text-section">
+            <h3>Account</h3>
+            <hr />
+            <div class="account-details">
+                <dl class="dl-horizontal">
+                    <dt>@Html.DisplayNameFor(model => model.FirstName)</dt>
+                    <dd>@Html.DisplayFor(model => model.FirstName)</dd>
 
-                        <dt>@Html.DisplayNameFor(model => model.LastName)</dt>
-                        <dd>@Html.DisplayFor(model => model.LastName)</dd>
+                    <dt>@Html.DisplayNameFor(model => model.LastName)</dt>
+                    <dd>@Html.DisplayFor(model => model.LastName)</dd>
 
-                        <dt>@Html.DisplayNameFor(model => model.Email)</dt>
-                        <dd>@Html.DisplayFor(model => model.Email)</dd>
+                    <dt>@Html.DisplayNameFor(model => model.Email)</dt>
+                    <dd>@Html.DisplayFor(model => model.Email)</dd>
 
-                        <dt>@Html.DisplayNameFor(model => model.AccountNumber)</dt>
-                        <dd>@Html.DisplayFor(model => model.AccountNumber)</dd>
+                    <dt>@Html.DisplayNameFor(model => model.AccountNumber)</dt>
+                    <dd>@Html.DisplayFor(model => model.AccountNumber)</dd>
 
-                        <dt>@Html.DisplayNameFor(model => model.AccountNumber)</dt>
-                    </dl>
-                    <hr />
-                    <table class="table" id="accountTable">
-                        <tr>
-                            <th>Id</th>
-                            <th>Account Type</th>
-                            <th>Balance</th>
-                        </tr>
+                    <dt>@Html.DisplayNameFor(model => model.Balance)</dt>
+                    <dd>@Html.DisplayFor(model => model.Balance)</dd>
 
-                        @foreach (var item in Model.Accounts)
+                    <dt>@Html.DisplayNameFor(model => model.AccountType)</dt>
+                    <dd>
+                        @if (Model.AccountType == 0)
                         {
-                            <tr data-account-id="@item.Id">
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Id)
-                                </td>
-                                <td>
-                                    @if (item.AccountType == 0)
-                                    {
-                                        @:Current Account
-                                    }
-                                    else
-                                    {
-                                        @:Saving Account
-                                    }
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Balance) €
-                                </td>
-                            </tr>
+                            @:Administrator Account
                         }
-                    </table>
-                </div>
+                        else if (Model.AccountType == 1)
+                        {
+                            @:Current Account
+                        }
+                        else
+                        {
+                            @:Saving Account
+                        }
+                    </dd>
+                </dl>
             </div>
         </div>
-        <script src="~/Scripts/accounts-table.js"></script>
-        <script src="~/Scripts/logout-btn.js"></script>
-    </body>
-    </html>
-    }
-}
+    </div>
+    <script src="~/Scripts/LogOut-btn.js"></script>
+</body>
+</html>
